@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Home | CALDERA</title>
+        <link rel="shortcut icon" type="image/png" href="/gui/img/favicon.png"/>
+        <link rel="stylesheet" href="/gui/css/shared.css" type="text/css">
+        <link rel="stylesheet" href="/gui/css/basic.css" type="text/css">
+        <link rel="stylesheet" href="/gui/css/navbar.css" type="text/css">
+        <link rel="stylesheet" href="/gui/css/modal.css" type="text/css">
+    </head>
+    <body>
+        <div class="topnav">
+          <a class="active" href="/">Home</a>
+          <div class="topnav-right">
+            <a onclick="document.getElementById('modal-7').style.display='block'">Account</a>
+            <a href="/logout">Logout</a>
+          </div>
+        </div>
+
+        <center>
+            <div id="modal-7" class="modal">
+                  <form class="modal-content animate" id="password-form">
+                    <div class="imgcontainer">
+                      <span onclick="document.getElementById('modal-7').style.display='none'" class="close"
+                            title="Close Modal">&times;</span>
+                    </div>
+                      <div class="flashy" style="padding: 15px 0 0 0;">
+                        <div id="flash-settings-bar"></div>
+                      </div>
+                    <div class="container">
+                        <input id="passwordold" type="password" placeholder="enter current password">
+                        <input id="password1" type="password" placeholder="enter new password">
+                        <input id="password2" type="password" placeholder="enter new password again">
+                        <input type="button" class="button" onclick="changePassword()" value="change password" />
+                    </div>
+                  </form>
+                </div>
+            <div class="home-box">
+                <h1 style="margin-bottom: 10px">CALDERA</h1>
+                <hr>
+                <p>Loaded plugins are shown below</p>
+                <br>
+                <center>
+                    <table style="border-collapse: separate;border-spacing: 25px 0;">
+                        {% for plugin in plugins %}
+                            <td>
+                                <div class="plugin-box">
+                                    <center>
+                                        {% if plugin.address %}
+                                            <b><p><a href="{{ plugin.address }}">{{ plugin.name }}</a></p></b>
+                                        {% else %}
+                                            <b><p>{{ plugin.name }}</p></b>
+                                        {% endif %}
+                                        <hr>
+                                        <p style="font-size:14px;text-align:left">{{ plugin.description }}</p>
+                                    </center>
+                                </div>
+                            </td>
+                        {% endfor %}
+                    </table>
+                </center>
+            </div>
+        </center>
+    </body>
+    <script src="/gui/jquery/jquery.js"></script>
+    <script>
+        function flash(id, msg){
+            $(function() {document.getElementById(id).innerHTML = msg;
+                $('#'+id).delay(1000).fadeIn('normal', function() {
+                    $(this).delay(1000).fadeOut();
+                });
+            });
+        }
+
+        function changePassword() {
+            let calderaUrlRoot = window.location.href.split("/").slice(0,3).join("/") + "/";
+            let password1 = document.getElementById('password1').value;
+            let password2 = document.getElementById('password2').value;
+            let passwordold = document.getElementById('passwordold').value;
+            if (password1 !== password2) {
+                flash('flash-settings-bar', 'passwords do not match');
+                return;
+            }
+            if (password1 === '' || passwordold === '') {
+                flash('flash-settings-bar', 'must enter all password values');
+                return;
+            }
+            flash('flash-settings-bar','changing password. please wait...');
+            let passwordData = {"old": passwordold, "new": password1};
+            $.ajax({
+                url: calderaUrlRoot + 'user/password',
+                crossDomain: true,
+                data: JSON.stringify(passwordData),
+                xhrFields: {
+                    withCredentials: true
+                },
+                type: 'POST',
+                success: function(data) {
+                    flash('flash-settings-bar', data)
+                }
+            })
+
+        }
+    </script>
+</html>

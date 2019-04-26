@@ -1,0 +1,29 @@
+.home-box {
+    background-color: #333;
+    border-radius: 25px;
+    padding: 10px;
+    width:75%;
+    margin-top: 100px;
+    vertical-align: middle;
+}
+.plugin-box {
+    border-radius: 25px;
+    background-color: #1e1e1e;
+    padding: 15px;
+    width: 135px;
+    height: 210px;
+    margin-bottom: 25px;
+}
+.plugin-box a {
+    color: var(--theme-color);
+}
+.plugin-box hr {
+    margin: 10px -10px 10px;
+    border: 0;
+    border-top: 5px solid #333;
+}
+.plugin-box button {
+    width: 75px;
+    margin-top: 0;
+    border-radius: 25px;
+}

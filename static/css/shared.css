@@ -1,0 +1,100 @@
+:root {
+  --theme-color: firebrick;
+  --default-font: 'Helvetica Neue', sans-serif;
+}
+body {
+    background-color: #1e1e1e;
+    font-family: var(--default-font);
+    opacity: 1;
+    transition: 0.7s opacity;
+}
+body.fade {
+    opacity: 0;
+    transition: none;
+}
+h1 {
+    font-family: var(--default-font);
+    margin-top: 60px;
+    color: white;
+    font-size: 110px;
+    font-weight: 100;
+}
+h3 {
+    font-family: var(--default-font);
+    color: white;
+    font-size: 30px;
+    font-weight: 100;
+}
+p {
+    line-height: 22px;
+    font-size: 18px;
+    color: white;
+}
+input {
+    text-align: center;
+    background-color: #ECF0F1;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s;
+}
+input:focus {
+    border: 2px solid #3498DB;
+    box-shadow: none;
+}
+input[type=button] {
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+}
+.input button:hover {
+    opacity: 0.6;
+}
+pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+select {
+   overflow: hidden;
+   background: white;
+   font-size: 14px;
+   height: 30px;
+   width: 100%;
+   padding: 5px 15px;
+   margin-top: 15px;
+   border-radius: 10px;
+}
+.row {
+    margin-top:50px;
+    margin-bottom: 50px;
+    text-align:center;
+    background-color:#333;
+    padding:25px;
+    border-radius:25px;
+    width: 95%;
+    display: flex;
+    position: relative;
+}
+.column {
+    flex: 50%;
+    color:white;
+    margin: 30px;
+}
+.button-success {
+    color: white;
+    border-radius: 4px;
+    margin-top: 30px;
+    height: 45px;
+    margin-bottom: 20px;
+    background-color: var(--theme-color);
+}
