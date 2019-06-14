@@ -10,6 +10,9 @@
     <body>
         <div class="topnav">
           <a class="active" href="/">Home</a>
+          {% for plugin in plugins %}
+              <a href="{{ plugin.address }}">{{ plugin.name }}</a>
+          {% endfor %}
           <div class="topnav-right">
             <a onclick="document.getElementById('modal-7').style.display='block'">Account</a>
             <a href="/logout">Logout</a>
@@ -35,29 +38,9 @@
                   </form>
                 </div>
             <div class="home-box">
-                <h1 style="margin-bottom: 10px">CALDERA</h1>
-                <hr>
-                <p>Loaded plugins are shown below</p>
-                <br>
-                <center>
-                    <table style="border-collapse: separate;border-spacing: 25px 0;">
-                        {% for plugin in plugins %}
-                            <td>
-                                <div class="plugin-box">
-                                    <center>
-                                        {% if plugin.address %}
-                                            <b><p><a href="{{ plugin.address }}">{{ plugin.name }}</a></p></b>
-                                        {% else %}
-                                            <b><p>{{ plugin.name }}</p></b>
-                                        {% endif %}
-                                        <hr>
-                                        <p style="font-size:14px;text-align:left">{{ plugin.description }}</p>
-                                    </center>
-                                </div>
-                            </td>
-                        {% endfor %}
-                    </table>
-                </center>
+                <h1 style="margin-bottom: 10px;margin-top:50px;font-size:190px;text-shadow: 5px 5px 5px rebeccapurple; ">CALDERA</h1>
+                <h3 id="first" class="typewriter" style="margin-bottom: 20px;margin-top: -20px">Cyber Adversary Language and Decision Engine for Red Team Automation</h3>
+                <img src="/gui/img/beard.png" style="height:400px;"/>
             </div>
         </center>
     </body>
@@ -98,7 +81,21 @@
                     flash('flash-settings-bar', data)
                 }
             })
-
         }
+        let text = $('.typewriter').text();
+        let length = text.length;
+        let timeOut;
+        let character = 0;
+        (function typeWriter() {
+            timeOut = setTimeout(function() {
+                character++;
+                let type = text.substring(0, character);
+                $('.typewriter').text(type);
+                typeWriter();
+                if (character == length) {
+                    clearTimeout(timeOut);
+                }
+            }, 100);
+        }());
     </script>
 </html>
