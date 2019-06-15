@@ -2,7 +2,7 @@ from plugins.gui.app.gui_api import GuiApi
 
 name = 'GUI'
 description = 'Provides a web application structure & authentication for other plugins to build upon'
-address = '/'
+address = None
 
 
 async def initialize(app, services):

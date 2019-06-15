@@ -11,7 +11,9 @@
         <div class="topnav">
           <a class="active" href="/">Home</a>
           {% for plugin in plugins %}
-              <a href="{{ plugin.address }}">{{ plugin.name }}</a>
+              {% if plugin.address %}
+                <a href="{{ plugin.address }}">{{ plugin.name }}</a>
+              {% endif %}
           {% endfor %}
           <div class="topnav-right">
             <a onclick="document.getElementById('modal-7').style.display='block'">Account</a>
