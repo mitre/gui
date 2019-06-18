@@ -16,29 +16,11 @@
               {% endif %}
           {% endfor %}
           <div class="topnav-right">
-            <a onclick="document.getElementById('modal-7').style.display='block'">Account</a>
             <a href="/logout">Logout</a>
           </div>
         </div>
 
         <center>
-            <div id="modal-7" class="modal">
-                  <form class="modal-content animate" id="password-form">
-                    <div class="imgcontainer">
-                      <span onclick="document.getElementById('modal-7').style.display='none'" class="close"
-                            title="Close Modal">&times;</span>
-                    </div>
-                      <div class="flashy" style="padding: 15px 0 0 0;">
-                        <div id="flash-settings-bar"></div>
-                      </div>
-                    <div class="container">
-                        <input id="passwordold" type="password" placeholder="enter current password">
-                        <input id="password1" type="password" placeholder="enter new password">
-                        <input id="password2" type="password" placeholder="enter new password again">
-                        <input type="button" class="button" onclick="changePassword()" value="change password" />
-                    </div>
-                  </form>
-                </div>
             <div class="home-box">
                 <h1 style="margin-bottom: 10px;margin-top:50px;font-size:190px;text-shadow: 5px 5px 5px rebeccapurple; ">CALDERA</h1>
                 <h3 id="first" class="typewriter" style="margin-bottom: 20px;margin-top: -20px">Cyber Adversary Language and Decision Engine for Red Team Automation</h3>
