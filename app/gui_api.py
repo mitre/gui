@@ -1,6 +1,4 @@
-from aiohttp import web
 from aiohttp_jinja2 import template
-from aiohttp_session import get_session
 
 
 class GuiApi:
@@ -10,26 +8,20 @@ class GuiApi:
         self.plugins = plugins
 
     @template('login.html')
-    async def enter(self, request):
-        data = await request.post()
-        if await self.auth_svc.login(data.get('username'), data.get('password')):
-            session = await get_session(request)
-            await self.auth_svc.login_wrapper(session, data.get('username'))
-            return web.HTTPFound('/')
+    async def login(self, request):
+        return dict()
 
     @template('login.html')
     async def logout(self, request):
-        session = await get_session(request)
-        await self.auth_svc.logout_wrapper(session)
+        await self.auth_svc.logout_user(request)
+
+    async def validate_login(self, request):
+        return await self.auth_svc.login_user(request)
 
     @template('home.html')
     async def home(self, request):
+        await self.auth_svc.check_permissions(request)
         p = [dict(name=getattr(p, 'name'), description=getattr(p, 'description'), address=getattr(p, 'address'))
              for p in self.plugins]
         return dict(plugins=p)
 
-    async def reset_password(self, request):
-        session = await get_session(request)
-        submission = await request.json()
-        resp = await self.auth_svc.reset_wrapper(submission, session)
-        return resp
