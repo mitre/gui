@@ -1,9 +1,21 @@
 :root {
-  --theme-color: rebeccapurple;
   --default-font: 'Helvetica Neue', sans-serif;
+  --theme-color: rebeccapurple;
+  --primary-background: #1e1e1e;
+  --secondary-background: #666;
+  --navbar-background: #333;
+  --font-color: white;
 }
+/*
+:root {
+  --primary-background: white;
+  --secondary-background: #666;
+  --navbar-background: lightgrey;
+  --font-color: black;
+}
+*/
 body {
-    background-color: #1e1e1e;
+    background-color: var(--primary-background);
     font-family: var(--default-font);
     opacity: 1;
     transition: 0.7s opacity;
@@ -15,7 +27,7 @@ body.fade {
 h1 {
     font-family: var(--default-font);
     margin-top: 60px;
-    color: white;
+    color: var(--font-color);
     font-size: 110px;
     font-weight: 100;
 }
@@ -28,7 +40,7 @@ h3 {
 p {
     line-height: 22px;
     font-size: 18px;
-    color: white;
+    color: var(--font-color);
 }
 input {
     text-align: center;
@@ -78,7 +90,7 @@ select {
     margin-top:50px;
     margin-bottom: 50px;
     text-align:center;
-    background-color:#333;
+    background-color: var(--navbar-background);
     padding:25px;
     border-radius:25px;
     width: 95%;
@@ -87,7 +99,7 @@ select {
 }
 .column {
     flex: 50%;
-    color:white;
+    color: var(--font-color);
     margin: 30px;
 }
 .button-success {

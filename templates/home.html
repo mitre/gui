@@ -22,50 +22,14 @@
 
         <center>
             <div class="home-box">
-                <h1 style="margin-bottom: 10px;margin-top:50px;font-size:190px;text-shadow: 5px 5px 5px rebeccapurple; ">CALDERA</h1>
-                <h3 id="first" class="typewriter" style="margin-bottom: 20px;margin-top: -20px">Cyber Adversary Language and Decision Engine for Red Team Automation</h3>
+                <h1 class="big-head">CALDERA</h1>
+                <h3 id="first" class="typewriter small-head" style="margin-bottom: 20px;margin-top: -20px">Cyber Adversary Language and Decision Engine for Red Team Automation</h3>
                 <div class="column" style="flex: 25%;"></div>
             </div>
         </center>
     </body>
     <script src="/gui/jquery/jquery.js"></script>
     <script>
-        function flash(id, msg){
-            $(function() {document.getElementById(id).innerHTML = msg;
-                $('#'+id).delay(1000).fadeIn('normal', function() {
-                    $(this).delay(1000).fadeOut();
-                });
-            });
-        }
-
-        function changePassword() {
-            let calderaUrlRoot = window.location.href.split("/").slice(0,3).join("/") + "/";
-            let password1 = document.getElementById('password1').value;
-            let password2 = document.getElementById('password2').value;
-            let passwordold = document.getElementById('passwordold').value;
-            if (password1 !== password2) {
-                flash('flash-settings-bar', 'passwords do not match');
-                return;
-            }
-            if (password1 === '' || passwordold === '') {
-                flash('flash-settings-bar', 'must enter all password values');
-                return;
-            }
-            flash('flash-settings-bar','changing password. please wait...');
-            let passwordData = {"old": passwordold, "new": password1};
-            $.ajax({
-                url: calderaUrlRoot + 'user/password',
-                crossDomain: true,
-                data: JSON.stringify(passwordData),
-                xhrFields: {
-                    withCredentials: true
-                },
-                type: 'POST',
-                success: function(data) {
-                    flash('flash-settings-bar', data)
-                }
-            })
-        }
         let text = $('.typewriter').text();
         let length = text.length;
         let timeOut;
