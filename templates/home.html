@@ -1,3 +1,4 @@
+<script src="/gui/js/shared.js"></script>
 <html>
     <head>
         <title>Home | Splash</title>
@@ -25,11 +26,18 @@
                 <h1 class="big-head">CALDERA</h1>
                 <h3 id="first" class="typewriter small-head" style="margin-bottom: 20px;margin-top: -20px">Cyber Adversary Language and Decision Engine for Red Team Automation</h3>
                 <div class="column" style="flex: 25%;"></div>
+                <br>
+                <div class="toggle">
+                    <label class="switch"><input type="checkbox" id="checkbox" onchange="switchTheme()">
+                      <div class="slider round"><span class="on">LIGHT MODE</span><span class="off">DARK MODE</span></div>
+                    </label>
+                </div>
             </div>
         </center>
     </body>
     <script src="/gui/jquery/jquery.js"></script>
     <script>
+        // typewriter
         let text = $('.typewriter').text();
         let length = text.length;
         let timeOut;
@@ -46,5 +54,16 @@
             }, 75);
         }());
         $('.pawprint').fadeOut(8000);
+
+        // change theme
+        function switchTheme() {
+            if(!$('#checkbox').prop('checked')) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
     </script>
 </html>
