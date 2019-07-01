@@ -5,11 +5,11 @@
 	outline: none;
 }
 .login {
+    border: 1px solid var(--secondary-background);
     margin: 20px auto;
     width: 300px;
 }
 .login-screen {
-    margin-top: 100px;
     background-color: #FFF;
     padding: 20px;
     border-radius: 5px

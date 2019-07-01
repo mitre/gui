@@ -84,35 +84,3 @@ span.psw {
     color: #7a1f1f;
     cursor: pointer;
 }
-
-.planner-settings-btn-group {
-    padding:0;
-    width: 100%;
-}
-
-.planner-settings-btn-group label {
-    background-color: var(--theme-color);
-    color: white;
-    padding: 14px 0px;
-    margin: 8px 0;
-    border: none;
-    display: inline-block;
-    width: 49%;
-    opacity: .5;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.planner-settings-btn-group input[type="radio"]{
-    display:none;
-}
-
-.planner-settings-btn-group input[type="radio"]:checked+label {
-    opacity:1.0;
-}
-
-.planner-settings-btn-group .btn-primary:hover {
-    opacity: .8;
-}
