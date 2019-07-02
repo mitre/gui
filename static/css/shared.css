@@ -177,3 +177,6 @@ select {
 .slider.round:before {
   border-radius: 50%;
 }
+.select-info {
+    padding-left: 10px;
+}
