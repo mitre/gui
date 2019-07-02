@@ -106,7 +106,20 @@ select {
     margin-top: 30px;
     height: 45px;
     margin-bottom: 20px;
-    background-color: var(--theme-color);
+    background-color: green;
+    pointer-events: auto;
+    cursor: pointer;
+}
+.button-notready {
+    color: white;
+    border-radius: 4px;
+    margin-top: 30px;
+    height: 45px;
+    margin-bottom: 20px;
+    background-color: darkred;
+    opacity: .5;
+    pointer-events: none;
+    cursor: not-allowed;
 }
 
 /* toggle buttons */
