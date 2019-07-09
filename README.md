@@ -1,8 +1,5 @@
 # CALDERA plugin: GUI
 
-This plugin contains:
-* A basic webapp structure, including stylesheets and login/logout functionality
-* A home page which displays details about all loaded plugins
+A plugin to add a GUI and general authentication for other plugins to build upon.
 
-If you have loaded this plugin, CALDERA will now be accessible at https://localhost:8888. Default
-credentials are admin:admin, although these are configurable through the core system's configuration file, local.yml.
+[Read the full docs](https://github.com/mitre/caldera/wiki/Plugin:-gui)
