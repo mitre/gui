@@ -7,7 +7,7 @@ class GuiApi:
         self.auth_svc = auth_svc
         self.plugins = plugins
 
-    @template('login.html')
+    @template('login.html', status=401)
     async def login(self, request):
         return dict()
 
