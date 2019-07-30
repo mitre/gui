@@ -5,12 +5,14 @@
   --secondary-background: #666;
   --navbar-background: #333;
   --font-color: white;
+  --invert-percentage: 100%;
 }
 [data-theme="light"] {
   --primary-background: white;
   --secondary-background: #666;
   --navbar-background: lightgrey;
   --font-color: black;
+  --invert-percentage: 0%;
 }
 body {
     background-color: var(--primary-background);
