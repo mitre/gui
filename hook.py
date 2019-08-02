@@ -11,4 +11,4 @@ async def initialize(app, services):
     app.router.add_route('*', '/', gui_api.home)
     app.router.add_route('*', '/enter', gui_api.validate_login)
     app.router.add_route('*', '/logout', gui_api.logout)
-    app.router.add_route('*', '/login', gui_api.login)
+    app.router.add_route('GET', '/login', gui_api.login)
