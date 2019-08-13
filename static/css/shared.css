@@ -102,26 +102,30 @@ select {
     color: var(--font-color);
     margin: 30px;
 }
-.button-success {
+.button-success,
+.button-notready,
+.button-warn {
     color: white;
     border-radius: 4px;
     margin-top: 30px;
     height: 45px;
     margin-bottom: 20px;
+}
+.button-success {
     background-color: green;
     pointer-events: auto;
     cursor: pointer;
 }
 .button-notready {
-    color: white;
-    border-radius: 4px;
-    margin-top: 30px;
-    height: 45px;
-    margin-bottom: 20px;
     background-color: darkred;
-    opacity: .5;
     pointer-events: none;
     cursor: not-allowed;
+    opacity: .5;
+}
+.button-warn {
+    background-color: darkred;
+    pointer-events: auto;
+    cursor: pointer;
 }
 
 /* toggle buttons */
