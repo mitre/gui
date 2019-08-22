@@ -21,7 +21,6 @@ class GuiApi:
     @template('home.html')
     async def home(self, request):
         await self.auth_svc.check_permissions(request)
-        p = [dict(name=getattr(p, 'name'), description=getattr(p, 'description'), address=getattr(p, 'address'))
-             for p in self.plugins]
+        p = [dict(name=getattr(p, 'name'), address=getattr(p, 'address')) for p in self.plugins]
         return dict(plugins=p)
 
