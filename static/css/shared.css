@@ -110,6 +110,13 @@ select {
     height: 45px;
     margin-bottom: 20px;
 }
+.button-embedded {
+    background-color: var(--primary-background);
+    color: var(--font-color);
+    height: 25px;
+    border: none;
+    margin: 5px;
+}
 .button-success {
     background-color: green;
     pointer-events: auto;
