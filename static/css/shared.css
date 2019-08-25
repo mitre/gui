@@ -269,3 +269,29 @@ select {
 .section-description {
     padding: 10px 25px;
 }
+
+/* notice bar */
+
+.notice {
+  padding: 6px;
+  background-color: orange;
+  color: var(--font-color);
+  height: 17px;
+  font-size: 14px;
+}
+
+/* The close button */
+
+.closebtn {
+  margin-left: 15px;
+  color: var(--font-color);
+  font-weight: bold;
+  float: right;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover {
+  color: black;
+}
