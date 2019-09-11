@@ -121,6 +121,7 @@ select {
     background-color: green;
     pointer-events: auto;
     cursor: pointer;
+    opacity: 1.0;
 }
 .button-notready {
     background-color: darkred;
