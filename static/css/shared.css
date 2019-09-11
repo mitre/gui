@@ -275,10 +275,11 @@ select {
 
 .notice {
   padding: 6px;
-  background-color: orange;
+  background-color: red;
   color: var(--font-color);
   height: 17px;
   font-size: 14px;
+  text-align: center;
 }
 
 /* The close button */

@@ -4,6 +4,14 @@ if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
 }
 
+//check browser
+window.onload = function checkBrowser(){
+    let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if(!isChrome) {
+        $('#notice').css('display', 'block');
+    }
+};
+
 // AJAX caller
 function restRequest(type, data, callback, endpoint='/plugin/chain/rest') {
     $.ajax({
