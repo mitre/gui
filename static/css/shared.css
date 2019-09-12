@@ -297,3 +297,25 @@ select {
 .closebtn:hover {
   color: black;
 }
+.duk {
+    margin: 0;
+}
+.duk img {
+    height: 15px;
+    background-color: inherit;
+    border-radius: 0;
+    border: none;
+}
+.duk-icon:hover{
+    background: var(--theme-color);
+    border-radius: 25px;
+}
+.duk-modal {
+    background-color: black;
+}
+.duk-modal img {
+    height: 50px;
+}
+.duk-modal p {
+    text-align: left;
+}
