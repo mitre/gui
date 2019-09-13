@@ -319,3 +319,12 @@ select {
 .duk-modal p {
     text-align: left;
 }
+.mode {
+    font-size:14px;
+    margin-top:8px;
+    color:white;
+    background-color: var(--theme-color);
+    border-radius:25px;
+    padding:5px;
+    display: inline-block;
+}

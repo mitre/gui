@@ -36,3 +36,14 @@ function updateButtonState(selector, state) {
         $(selector).attr('class','button-success atomic-button') :
         $(selector).attr('class','button-notready atomic-button');
 }
+
+// change theme
+function switchTheme() {
+    if(!$('#checkbox').prop('checked')) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    }
+}

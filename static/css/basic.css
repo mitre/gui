@@ -8,10 +8,15 @@
 }
 .big-head {
     margin-bottom: 10px;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size:190px;
     text-shadow: 5px 5px 5px var(--theme-color);
 }
 .small-head {
     color: var(--font-color);
+}
+.duk-home img {
+    height: 50px;
+    border-radius:50%;
+    border:1px solid black;
 }

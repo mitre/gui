@@ -28,17 +28,41 @@
                 <h1 class="big-head">CALDERA</h1>
                 <h3 id="first" class="typewriter small-head" style="margin-bottom: 20px;margin-top: -20px">Cyber Adversary Language and Decision Engine for Red Team Automation</h3>
                 <div class="column" style="flex: 25%;"></div>
-                <br>
-                <div class="toggle">
-                    <label class="switch"><input type="checkbox" id="checkbox" onchange="switchTheme()">
-                      <div class="slider round"><span class="on">LIGHT MODE</span><span class="off">DARK MODE</span></div>
-                    </label>
+                <div class="row" style="background-color: inherit;margin: -45px 0 0;">
+                    <div class="column duk-home" onclick="openBlue()" style="flex:33%">
+                        <img style="background-color: blue" src="/gui/img/blue.png">
+                        <p>I am a <u>blue-teamer</u></p>
+                    </div>
+                    <div class="column duk-home" onclick="openRed()" style="flex:33%">
+                        <img style="background-color: red" src="/gui/img/red.png">
+                        <p>I am a <u>red-teamer</u></p>
+                    </div>
+                    <div class="column duk-home" onclick="openResearch()" style="flex:33%">
+                        <img style="background-color: grey" src="/gui/img/research.png">
+                        <p>I am a <u>researcher</u></p>
+                    </div>
                 </div>
-                <br><br>
-                <div id="duk-intro" style="color:var(--font-color);font-size:14px;">
-                    <i><span><img src="/gui/img/duk.png" style="height:20px;"/>&nbsp;&nbsp;&nbsp;A DUK is a helpful "Do U Know?" hint box. Click on them whenever you see them.</span></i>
+                <br>
+                <div id="duk-intro" style="color:var(--font-color);font-size:12px">
+                    <i><span><img src="/gui/img/duk.png" style="height:15px;"/>&nbsp;&nbsp;&nbsp;A DUK is a helpful "Do U Know?" hint. Click on it whenever you see one.</span></i>
                 </div>
             </div>
+
+            <!-- START MODALS -->
+
+            <div id="home-modal" class="modal" style="background-color: black;">
+                <form class="modal-content" style="background-color: var(--primary-background)">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('home-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    </div>
+                    <div class="container">
+                        <p id="home-text" style="color: white;text-align: left">test</p>
+                    </div>
+                 </form>
+            </div>
+
+            <!-- END MODALS -->
+
         </center>
     </body>
     <script src="/gui/jquery/jquery.js"></script>
@@ -61,22 +85,33 @@
         }());
         $('.pawprint').fadeOut(8000);
 
-        // change theme
-        function switchTheme() {
-            if(!$('#checkbox').prop('checked')) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            }
-        }
         // user prefs
         const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
         if (currentTheme === 'light') {
             toggleSwitch.checked = true;
         } else {
             toggleSwitch.checked = false;
+        }
+
+        //Modals
+        function openBlue(){
+            document.getElementById("home-modal").style.display="block";
+            $('#home-text').text('As a blue-team operator, you should start by deploying one or many 54ndc47 (Sandcat) ' +
+                'agents on remote computers you want to test. Then move into Chain mode to create adversary profiles and run ' +
+                'operations against the deployed hosts.');
+        }
+        function openRed(){
+            document.getElementById("home-modal").style.display="block";
+            $('#home-text').text('As a red-team operator, you should restart the server with the terminal plugin ' +
+                'loaded. Then, deploy one or many 54ndc47 (Sandcat) agents on remote computers. Use the terminal ' +
+                'to create and join reverse-shell sessions to manually compromise the hosts.');
+        }
+        function openResearch(){
+            document.getElementById("home-modal").style.display="block";
+            $('#home-text').text('As a researcher, you should deploy a 54ndc47 (Sandcat) agent on your local machine. ' +
+                'Then go to Chain mode and review how an adversary links abilities together. Finally, run a few sample ' +
+                'operations. Once familiar, take a look at the sequential.py module in the source code, which contains ' +
+                'the planning algorithms used for the automated decision making.');
         }
     </script>
 </html>
