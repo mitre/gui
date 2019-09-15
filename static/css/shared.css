@@ -37,6 +37,9 @@ h3 {
     font-size: 30px;
     font-weight: 100;
 }
+a {
+    color: var(--theme-color);
+}
 p {
     line-height: 22px;
     font-size: 18px;
