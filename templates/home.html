@@ -26,25 +26,49 @@
         <center>
             <div class="home-box">
                 <h1 class="big-head">CALDERA</h1>
-                <h3 id="first" class="typewriter small-head" style="margin-bottom: 20px;margin-top: -20px">Cyber Adversary Language and Decision Engine for Red Team Automation</h3>
+                <h3 id="first" class="typewriter small-head" style="margin-bottom: 20px;margin-top:0">Cyber Adversary Language and Decision Engine for Red Team Automation</h3>
                 <div class="column" style="flex: 25%;"></div>
-                <div class="row" style="background-color: inherit;margin: -45px 0 0;">
-                    <div class="column duk-home" onclick="openBlue()" style="flex:33%">
-                        <img style="background-color: blue" src="/gui/img/blue.png">
-                        <p>I am a <u>blue-teamer</u></p>
+                <div class="row" style="background-color: inherit;margin: -45px -50px -50px;">
+                    <div class="column duk-home" style="flex:33%;border-right: solid white 1px;line-height: 10px;">
+                        <h3>I am a blue-teamer</h3>
+                        <p>
+                            As a blue-team operator, you should start by deploying one or many 54ndc47 (Sandcat)
+                            agents on remote computers you want to test. Then move into Chain mode to create adversary
+                            profiles and runoperations against the deployed hosts.
+                        </p>
                     </div>
-                    <div class="column duk-home" onclick="openRed()" style="flex:33%">
-                        <img style="background-color: red" src="/gui/img/red.png">
-                        <p>I am a <u>red-teamer</u></p>
+                    <div class="column duk-home" style="flex:33%;border-right: solid white 1px;line-height: 10px;">
+                        <h3>I am a researcher</h3>
+                        <p>
+                            As a researcher, you should restart the server with the mock plugin, which deploys
+                            simulated agents. Then, go into Chain mode and run a few sample operations. Once familiar
+                            with how abilities link together, study the sequential.py module in the source code,
+                            which contains the automated decision-making logic.
+                        </p>
                     </div>
-                    <div class="column duk-home" onclick="openResearch()" style="flex:33%">
-                        <img style="background-color: grey" src="/gui/img/research.png">
-                        <p>I am a <u>researcher</u></p>
+                    <div class="column duk-home" style="flex:33%;line-height: 10px;">
+                        <h3>I am a red-teamer</h3>
+                        <p>
+                            As a red-team operator, you should restart the server with the terminal plugin loaded.
+                            Then, deploy one or many 54ndc47 (Sandcat) agents on remote computers. Use the terminal
+                            to create and join reverse-shell sessions to manually compromise the hosts.
+                        </p>
                     </div>
                 </div>
-                <br>
-                <div id="duk-intro" style="color:var(--font-color);font-size:12px">
-                    <i><span><img src="/gui/img/duk.png" style="height:15px;"/>&nbsp;&nbsp;&nbsp;A DUK is a helpful "Do U Know?" hint. Click on it whenever you see one.</span></i>
+                <br><br><br>
+                <div class="subsection">
+                    <img src="/gui/img/plugin.png" style="height: 45px"/>
+                    <p>LOADED PLUGINS</p>
+                    <table border=1 frame=void rules=rows style="margin-bottom: 70px;">
+                        <tbody>
+                            {% for plugin in plugins %}
+                                <tr>
+                                    <td>{{ plugin.name }}</td>
+                                    <td>{{ plugin.description }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -83,26 +107,5 @@
                 }
             }, 75);
         }());
-
-        //Modals
-        function openBlue(){
-            document.getElementById("home-modal").style.display="block";
-            $('#home-text').text('As a blue-team operator, you should start by deploying one or many 54ndc47 (Sandcat) ' +
-                'agents on remote computers you want to test. Then move into Chain mode to create adversary profiles and run ' +
-                'operations against the deployed hosts.');
-        }
-        function openRed(){
-            document.getElementById("home-modal").style.display="block";
-            $('#home-text').text('As a red-team operator, you should restart the server with the terminal plugin ' +
-                'loaded. Then, deploy one or many 54ndc47 (Sandcat) agents on remote computers. Use the terminal ' +
-                'to create and join reverse-shell sessions to manually compromise the hosts.');
-        }
-        function openResearch(){
-            document.getElementById("home-modal").style.display="block";
-            $('#home-text').text('As a researcher, you should deploy a 54ndc47 (Sandcat) agent on your local machine. ' +
-                'Then go to Chain mode and review how an adversary links abilities together. Finally, run a few sample ' +
-                'operations. Once familiar, take a look at the sequential.py module in the source code, which contains ' +
-                'the planning algorithms used for the automated decision making.');
-        }
     </script>
 </html>

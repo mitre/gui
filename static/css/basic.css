@@ -15,8 +15,38 @@
 .small-head {
     color: var(--font-color);
 }
+.duk-home {
+    padding: 10px;
+}
 .duk-home img {
     height: 50px;
     border-radius:50%;
-    border:1px solid black;
 }
+.duk-home h3 {
+    font-size: 24px;
+}
+.duk-home p {
+    font-size: 14px;
+    text-align: left;
+}
+
+/* plugins table */
+
+.subsection {
+    margin-top: 40px;
+    position:absolute;
+    left:0;
+    right:0;
+    background-image: linear-gradient(var(--primary-background), var(--theme-color));
+}
+
+table {
+  border-collapse: collapse;
+  color: white;
+}
+
+td {
+  text-align: left;
+  padding: 8px;
+}
+
