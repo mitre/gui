@@ -7,12 +7,17 @@
   --font-color: white;
   --invert-percentage: 100%;
 }
-[data-theme="light"] {
-  --primary-background: white;
-  --secondary-background: #666;
-  --navbar-background: lightgrey;
-  --font-color: black;
-  --invert-percentage: 0%;
+[data-theme="red"] {
+  --theme-color: red;
+}
+[data-theme="black"] {
+  --theme-color: black;
+}
+[data-theme="rebeccapurple"] {
+  --theme-color: rebeccapurple;
+}
+[data-theme="orange"] {
+  --theme-color: orange;
 }
 body {
     background-color: var(--primary-background);
@@ -330,4 +335,10 @@ select {
     border-radius:25px;
     padding:5px;
     display: inline-block;
+}
+.theme {
+    border-radius: 50px;
+    margin-top: 10px;
+    display: block;
+    padding: 5px;
 }

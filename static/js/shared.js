@@ -39,11 +39,11 @@ function updateButtonState(selector, state) {
 
 // change theme
 function switchTheme() {
-    if(!$('#checkbox').prop('checked')) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
+    let colors = ["rebeccapurple", "red", "black", "orange"];
+    let randomItem = colors[Math.floor(Math.random()*colors.length)];
+    while(randomItem === localStorage.getItem('theme')) {
+        randomItem = colors[Math.floor(Math.random()*colors.length)];
     }
+    document.documentElement.setAttribute('data-theme', randomItem);
+    localStorage.setItem('theme', randomItem);
 }
