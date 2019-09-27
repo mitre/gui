@@ -17,7 +17,6 @@
               {% endif %}
           {% endfor %}
           <div class="topnav-right">
-            <a class="theme" onclick="switchTheme()"></a>
             <a href="https://github.com/mitre/caldera/wiki" target="_blank">Docs</a>
             <a href="/logout">Logout</a>
           </div>
@@ -92,6 +91,8 @@
     </body>
     <script src="/gui/jquery/jquery.js"></script>
     <script>
+        activate([{'purple':switchTheme, 'red':switchTheme, 'orange':switchTheme, 'black':switchTheme}]);
+
         // typewriter
         let text = $('.typewriter').text();
         let length = text.length;

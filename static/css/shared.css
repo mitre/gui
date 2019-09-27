@@ -13,7 +13,7 @@
 [data-theme="black"] {
   --theme-color: black;
 }
-[data-theme="rebeccapurple"] {
+[data-theme="purple"] {
   --theme-color: rebeccapurple;
 }
 [data-theme="orange"] {
@@ -335,10 +335,4 @@ select {
     border-radius:25px;
     padding:5px;
     display: inline-block;
-}
-.theme {
-    border-radius: 50px;
-    margin-top: 10px;
-    display: block;
-    padding: 5px;
 }

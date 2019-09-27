@@ -38,14 +38,12 @@ function updateButtonState(selector, state) {
 }
 
 // change theme
-function switchTheme() {
-    let colors = ["rebeccapurple", "red", "black", "orange"];
-    let randomItem = colors[Math.floor(Math.random()*colors.length)];
-    while(randomItem === localStorage.getItem('theme')) {
-        randomItem = colors[Math.floor(Math.random()*colors.length)];
+function switchTheme(phrase) {
+    let themes = ['purple', 'orange', 'red', 'black'];
+    if(themes.includes(phrase)) {
+        document.documentElement.setAttribute('data-theme', phrase);
+        localStorage.setItem('theme', phrase);
     }
-    document.documentElement.setAttribute('data-theme', randomItem);
-    localStorage.setItem('theme', randomItem);
 }
 
 //voice controls
