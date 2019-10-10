@@ -68,3 +68,13 @@ function activate(controls){
     };
     recognition.start();
 }
+
+// flashy function
+function flashy(elem, message) {
+    let flash = $('#'+elem);
+    flash.find('#message').text(message);
+    flash.delay(100).fadeIn('normal', function() {
+        $(this).delay(3000).fadeOut();
+    });
+    flash.find('#message').text(message);
+}
