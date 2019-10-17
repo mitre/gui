@@ -13,11 +13,14 @@
 [data-theme="black"] {
   --theme-color: black;
 }
-[data-theme="purple"] {
+[data-theme="rebeccapurple"] {
   --theme-color: rebeccapurple;
 }
 [data-theme="orange"] {
   --theme-color: orange;
+}
+[data-theme="blue"] {
+  --theme-color: cornflowerblue;
 }
 body {
     background-color: var(--primary-background);
@@ -335,4 +338,10 @@ select {
     border-radius:25px;
     padding:5px;
     display: inline-block;
+}
+.theme {
+     border-radius: 50px;
+     margin-top: 10px;
+     display: block;
+     padding: 5px;
 }

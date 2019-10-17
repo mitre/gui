@@ -37,13 +37,14 @@ function updateButtonState(selector, state) {
         $(selector).attr('class','button-notready atomic-button');
 }
 
-// change theme
-function switchTheme(phrase) {
-    let themes = ['purple', 'orange', 'red', 'black'];
-    if(themes.includes(phrase)) {
-        document.documentElement.setAttribute('data-theme', phrase);
-        localStorage.setItem('theme', phrase);
-    }
+//change theme
+function switchTheme() {
+     let colors = ["rebeccapurple", "red", "black", "orange", "blue"];
+     const currentIndex = colors.indexOf(localStorage.getItem('theme'));
+     const nextIndex = (currentIndex + 1) % colors.length;
+     let nextColor = colors[nextIndex];
+     document.documentElement.setAttribute('data-theme', nextColor);
+     localStorage.setItem('theme', nextColor);
 }
 
 //voice controls
