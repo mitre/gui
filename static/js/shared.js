@@ -47,29 +47,6 @@ function switchTheme() {
      localStorage.setItem('theme', nextColor);
 }
 
-//voice controls
-function activate(controls){
-    window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
-    let recognition = new window.SpeechRecognition();
-    recognition.interimResults = true;
-    recognition.continuous = true;
-    recognition.onresult = (event) => {
-        for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
-            if (event.results[i].isFinal) {
-                console.log(event.results[i][0].transcript);
-                controls.forEach(function(c) {
-                    $.each(c, function(k, v) {
-                        if(event.results[i][0].transcript.trim().includes(k)) {
-                            v(k);
-                        }
-                    });
-                });
-            }
-        }
-    };
-    recognition.start();
-}
-
 // flashy function
 function flashy(elem, message) {
     let flash = $('#'+elem);
