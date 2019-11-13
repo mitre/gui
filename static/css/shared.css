@@ -10,14 +10,14 @@
 [data-theme="red"] {
   --theme-color: red;
 }
-[data-theme="black"] {
-  --theme-color: black;
+[data-theme="green"] {
+  --theme-color: darkgreen;
 }
 [data-theme="rebeccapurple"] {
   --theme-color: rebeccapurple;
 }
 [data-theme="orange"] {
-  --theme-color: orange;
+  --theme-color: darkorange;
 }
 [data-theme="blue"] {
   --theme-color: cornflowerblue;
@@ -309,7 +309,10 @@ select {
   color: black;
 }
 .duk {
-    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 17px;
 }
 .duk img {
     height: 15px;
@@ -341,7 +344,5 @@ select {
 }
 .theme {
      border-radius: 50px;
-     margin-top: 10px;
      display: block;
-     padding: 5px;
 }

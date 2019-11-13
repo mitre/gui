@@ -39,7 +39,7 @@ function updateButtonState(selector, state) {
 
 //change theme
 function switchTheme() {
-     let colors = ["rebeccapurple", "red", "black", "orange", "blue"];
+     let colors = ["rebeccapurple", "red", "green", "orange", "blue"];
      const currentIndex = colors.indexOf(localStorage.getItem('theme'));
      const nextIndex = (currentIndex + 1) % colors.length;
      let nextColor = colors[nextIndex];
