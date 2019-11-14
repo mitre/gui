@@ -315,7 +315,7 @@ select {
     padding: 17px;
 }
 .duk img {
-    height: 15px;
+    height: 22px;
     background-color: inherit;
     border-radius: 0;
     border: none;
@@ -345,4 +345,7 @@ select {
 .theme {
      border-radius: 50px;
      display: block;
+}
+.sidebar-cutout h5 {
+    margin-bottom: 0;
 }
