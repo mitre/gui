@@ -16,7 +16,6 @@
     font-size: 22px;
 }
 .duk-home {
-    display: none;
     text-align: center;
     background-color: var(--primary-background);
     border-radius: 25%;
