@@ -36,4 +36,3 @@ class GuiApi:
         await self.auth_svc.check_permissions(request)
         await self.data_svc.reload()
         return web.Response()
-
