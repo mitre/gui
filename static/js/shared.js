@@ -37,7 +37,6 @@ function updateButtonState(selector, state) {
         $(selector).attr('class','button-notready atomic-button');
 }
 
-//change theme
 function switchTheme() {
      let colors = ["rebeccapurple", "red", "green", "orange", "blue"];
      const currentIndex = colors.indexOf(localStorage.getItem('theme'));
@@ -45,6 +44,26 @@ function switchTheme() {
      let nextColor = colors[nextIndex];
      document.documentElement.setAttribute('data-theme', nextColor);
      localStorage.setItem('theme', nextColor);
+}
+
+function refreshData() {
+    $.ajax({
+       url: '/data/refresh',
+       type: 'POST',
+       success: function(data, status, options) { callback(data); },
+       error: function (xhr, ajaxOptions, thrownError) { console.log(thrownError) }
+    });
+    alert('Data has been refreshed!');
+}
+
+function clearData() {
+    $.ajax({
+       url: '/data/clear',
+       type: 'POST',
+       success: function(data, status, options) { callback(data); },
+       error: function (xhr, ajaxOptions, thrownError) { console.log(thrownError) }
+    });
+    alert('Data has been cleared!');
 }
 
 // flashy function
