@@ -16,7 +16,17 @@
               {% endif %}
           {% endfor %}
           <div class="topnav-right">
-            <a onclick="switchTheme()">Change theme</a>
+
+            <div class="dropdown">
+                <button class="dropbtn">Settings
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a onclick="switchTheme()">Change color</a>
+                  <a onclick="clearData()">Clear data</a>
+                  <a onclick="refreshData()">Refresh data</a>
+                </div>
+            </div>
             <a href="https://github.com/mitre/caldera/wiki" target="_blank">Docs</a>
             <a href="/logout">Logout</a>
           </div>

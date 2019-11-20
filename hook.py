@@ -6,9 +6,11 @@ address = None
 
 
 async def initialize(app, services):
-    gui_api = GuiApi(auth_svc=services.get('auth_svc'), plugins=services.get('app_svc').get_plugins())
+    gui_api = GuiApi(services=services)
     app.router.add_static('/gui', 'plugins/gui/static/', append_version=True)
     app.router.add_route('*', '/', gui_api.home)
     app.router.add_route('*', '/enter', gui_api.validate_login)
     app.router.add_route('*', '/logout', gui_api.logout)
     app.router.add_route('GET', '/login', gui_api.login)
+    app.router.add_route('POST', '/data/refresh', gui_api.refresh)
+    app.router.add_route('POST', '/data/clear', gui_api.clear)
