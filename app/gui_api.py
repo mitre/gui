@@ -1,3 +1,4 @@
+from aiohttp import web
 from aiohttp_jinja2 import template
 
 
@@ -29,7 +30,10 @@ class GuiApi:
     async def clear(self, request):
         await self.auth_svc.check_permissions(request)
         await self.data_svc.clear()
+        return web.Response()
 
     async def refresh(self, request):
         await self.auth_svc.check_permissions(request)
         await self.data_svc.refresh()
+        return web.Response()
+

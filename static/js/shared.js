@@ -40,7 +40,7 @@ function updateButtonState(selector, state) {
 function switchTheme() {
      let colors = ["rebeccapurple", "red", "green", "orange", "blue"];
      const currentIndex = colors.indexOf(localStorage.getItem('theme'));
-     const nextIndex = (currentIndex + 1) % colors.length;
+     const nextIndex = (currentIndex + 2) % colors.length;
      let nextColor = colors[nextIndex];
      document.documentElement.setAttribute('data-theme', nextColor);
      localStorage.setItem('theme', nextColor);
@@ -50,20 +50,20 @@ function refreshData() {
     $.ajax({
        url: '/data/refresh',
        type: 'POST',
-       success: function(data, status, options) { callback(data); },
+       success: function(data, status, options) { },
        error: function (xhr, ajaxOptions, thrownError) { console.log(thrownError) }
     });
-    alert('Data has been refreshed!');
+    $('#red-bar-text').text('Data has been refreshed!');
 }
 
 function clearData() {
     $.ajax({
        url: '/data/clear',
        type: 'POST',
-       success: function(data, status, options) { callback(data); },
+       success: function(data, status, options) { },
        error: function (xhr, ajaxOptions, thrownError) { console.log(thrownError) }
     });
-    alert('Data has been cleared!');
+    $('#red-bar-text').text('All data has been cleared out!')
 }
 
 // flashy function
