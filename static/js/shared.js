@@ -46,24 +46,24 @@ function switchTheme() {
      localStorage.setItem('theme', nextColor);
 }
 
-function refreshData() {
+function reloadData() {
     $.ajax({
-       url: '/data/refresh',
+       url: '/data/reload',
        type: 'POST',
        success: function(data, status, options) { },
        error: function (xhr, ajaxOptions, thrownError) { console.log(thrownError) }
     });
-    $('#red-bar-text').text('Data has been refreshed!');
+    $('#red-bar-text').text('Data has been reloaded');
 }
 
-function clearData() {
+function resetData() {
     $.ajax({
-       url: '/data/clear',
+       url: '/data/reset',
        type: 'POST',
        success: function(data, status, options) { },
        error: function (xhr, ajaxOptions, thrownError) { console.log(thrownError) }
     });
-    $('#red-bar-text').text('All data has been cleared out!')
+    $('#red-bar-text').text('Factory reset has been completed')
 }
 
 // flashy function
