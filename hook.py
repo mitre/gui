@@ -12,5 +12,5 @@ async def initialize(app, services):
     app.router.add_route('*', '/enter', gui_api.validate_login)
     app.router.add_route('*', '/logout', gui_api.logout)
     app.router.add_route('GET', '/login', gui_api.login)
-    app.router.add_route('POST', '/data/refresh', gui_api.refresh)
-    app.router.add_route('POST', '/data/clear', gui_api.clear)
+    app.router.add_route('POST', '/data/reload', gui_api.reload)
+    app.router.add_route('POST', '/data/reset', gui_api.reset)

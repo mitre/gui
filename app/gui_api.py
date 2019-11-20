@@ -27,13 +27,13 @@ class GuiApi:
              for p in self.plugins]
         return dict(plugins=p)
 
-    async def clear(self, request):
+    async def reset(self, request):
         await self.auth_svc.check_permissions(request)
-        await self.data_svc.clear()
+        await self.data_svc.reset()
         return web.Response()
 
-    async def refresh(self, request):
+    async def reload(self, request):
         await self.auth_svc.check_permissions(request)
-        await self.data_svc.refresh()
+        await self.data_svc.reload()
         return web.Response()
 
