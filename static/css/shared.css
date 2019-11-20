@@ -349,3 +349,20 @@ select {
 .sidebar-cutout h5 {
     margin-bottom: 0;
 }
+.checkdiv label {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+  font-size: 18px;
+  text-align: left;
+}
+.checkdiv input {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  margin:0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
+}
