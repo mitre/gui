@@ -3,6 +3,7 @@ from plugins.gui.app.gui_api import GuiApi
 name = 'GUI'
 description = 'Provides a web application structure & authentication for other plugins to build upon'
 address = None
+directory = None
 
 
 async def enable(app, services):
