@@ -7,7 +7,6 @@ class GuiApi:
     def __init__(self, services):
         self.auth_svc = services.get('auth_svc')
         self.data_svc = services.get('data_svc')
-        self.plugins = services.get('app_svc').get_plugins()
 
     @template('login.html', status=401)
     async def login(self, request):
@@ -23,9 +22,7 @@ class GuiApi:
     @template('home.html')
     async def home(self, request):
         await self.auth_svc.check_permissions(request)
-        p = [dict(name=getattr(p, 'name'), description=getattr(p, 'description'), address=getattr(p, 'address'))
-             for p in self.plugins]
-        return dict(plugins=p)
+        return dict(plugins=await self.data_svc.locate('plugins', match=dict(enabled=True)))
 
     async def reset(self, request):
         await self.auth_svc.check_permissions(request)
