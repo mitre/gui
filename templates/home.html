@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="/gui/css/shared.css" type="text/css">
         <link rel="stylesheet" href="/gui/css/basic.css" type="text/css">
         <link rel="stylesheet" href="/gui/css/navbar.css" type="text/css">
+        <link rel="stylesheet" href="/gui/css/modal.css">
     </head>
     <body>
         <div class="topnav">
@@ -16,15 +17,25 @@
               {% endif %}
           {% endfor %}
           <div class="topnav-right">
-
             <div class="dropdown">
                 <button class="dropbtn">Settings
                   <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                  <a onclick="switchTheme()">Change color</a>
                   <a onclick="reloadData()">Reload data</a>
                   <a onclick="resetData()">Factory reset</a>
+                  <div class="dropdown-colors">
+                    <button class="dropbtn-inner">Change color
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-colors-content">
+                      <a onclick="switchTheme('orange')">Orange</a>
+                      <a onclick="switchTheme('blue')">Blue</a>
+                      <a onclick="switchTheme('rebeccapurple')">Purple</a>
+                      <a onclick="switchTheme('green')">Green</a>
+                      <a onclick="switchTheme('red')">Red</a>
+                    </div>
+                  </div>
                 </div>
             </div>
             <a href="https://github.com/mitre/caldera/wiki" target="_blank">Docs</a>
@@ -37,9 +48,7 @@
             <div class="home-box">
                 <h1 id="big-head" class="big-head">CALDERA</h1>
                 <h3 id="sub-head" class="typewriter small-head" style="margin-bottom: 20px;margin-top:0;">Cyber Adversary Language and Decision Engine for Red Team Automation</h3>
-                <div class="red-bar">
-                    <span><p id="red-bar-text">v2.3.x</p></span>
-                </div>
+                <div class="red-bar"></div>
                 <p style="font-size: 15px;width:75%;">
                     CALDERA is a framework designed to quickly run breach-and-simulation exercises. It was originally
                     developed as a MITRE research & development program, aimed at automating the decision-making of
@@ -70,6 +79,19 @@
                         Point your adversary against the computers running agents to start an operation.
                     </p>
                 </div>
+            </div>
+
+            <div id="duk-modal" class="modal">
+                <form class="modal-content">
+                    <div class="container">
+                        <div class="row duk-modal">
+                            <span onclick="document.getElementById('duk-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <div class="column" style="flex:92%">
+                                <p id="duk-text" style="color: white"></p>
+                            </div>
+                        </div>
+                    </div>
+                 </form>
             </div>
 
         </center>

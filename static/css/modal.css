@@ -53,19 +53,19 @@ span.psw {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 100; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
+    background-color: var(--navbar-background);
+    padding-top: 70px;
+    overflow-y: scroll;
     height: 100%;
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 10px;
 }
 .modal-content {
-    background-color: #fefefe;
+    background-color: var(--navbar-background);
     margin: 5% auto 15% auto;
-    width: 40%;
+    width: 90%;
 }
 .modal p {
     color: #333;
@@ -77,6 +77,15 @@ span.psw {
     color: red;
     font-size: 35px;
     font-weight: bold;
+}
+.modal .approve{
+    background-color: green;
+}
+.modal .discard{
+    background-color: darkorange;
+}
+.modal .approveall{
+    background-color: darkgreen;
 }
 
 .close:hover,
