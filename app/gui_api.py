@@ -22,7 +22,7 @@ class GuiApi:
     @template('home.html')
     async def home(self, request):
         await self.auth_svc.check_permissions(request)
-        return dict(plugins=await self.data_svc.locate('plugins', match=dict(enabled=True)))
+        return dict(plugins=await self.data_svc.locate('plugins'))
 
     async def reset(self, request):
         await self.auth_svc.check_permissions(request)
