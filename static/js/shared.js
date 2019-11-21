@@ -37,13 +37,9 @@ function updateButtonState(selector, state) {
         $(selector).attr('class','button-notready atomic-button');
 }
 
-function switchTheme() {
-     let colors = ["rebeccapurple", "red", "green", "orange", "blue"];
-     const currentIndex = colors.indexOf(localStorage.getItem('theme'));
-     const nextIndex = (currentIndex + 2) % colors.length;
-     let nextColor = colors[nextIndex];
-     document.documentElement.setAttribute('data-theme', nextColor);
-     localStorage.setItem('theme', nextColor);
+function switchTheme(color) {
+     document.documentElement.setAttribute('data-theme', color);
+     localStorage.setItem('theme', color);
 }
 
 function reloadData() {
@@ -53,7 +49,7 @@ function reloadData() {
        success: function(data, status, options) { },
        error: function (xhr, ajaxOptions, thrownError) { console.log(thrownError) }
     });
-    $('#red-bar-text').text('Data has been reloaded');
+    alert('Data has been reloaded');
 }
 
 function resetData() {
@@ -63,7 +59,7 @@ function resetData() {
        success: function(data, status, options) { },
        error: function (xhr, ajaxOptions, thrownError) { console.log(thrownError) }
     });
-    $('#red-bar-text').text('Factory reset has been completed')
+    alert('Factory reset has been completed');
 }
 
 // flashy function
