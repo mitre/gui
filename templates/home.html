@@ -12,8 +12,10 @@
         <div class="topnav">
           <a class="active" href="/">Home</a>
           {% for plugin in plugins %}
-              {% if plugin.address %}
-                <a href="{{ plugin.address }}">{{ plugin.name }}</a>
+              {% if plugin.enabled %}
+                  {% if plugin.address %}
+                      <a href="{{ plugin.address }}">{{ plugin.name }}</a>
+                  {% endif %}
               {% endif %}
           {% endfor %}
           <div class="topnav-right">
@@ -25,16 +27,30 @@
                   <a onclick="reloadData()">Reload data</a>
                   <a onclick="resetData()">Factory reset</a>
                   <div class="dropdown-colors">
-                    <button class="dropbtn-inner">Change color
+                    <button class="dropbtn-inner"><span onclick="showColors()">&#8595;</span> Change color
                         <i class="fa fa-caret-down"></i>
                     </button>
-                    <div class="dropdown-colors-content">
+                    <div id="dropdown-colors-content" class="dropdown-colors-content">
                       <a onclick="switchTheme('orange')">Orange</a>
                       <a onclick="switchTheme('blue')">Blue</a>
                       <a onclick="switchTheme('rebeccapurple')">Purple</a>
                       <a onclick="switchTheme('green')">Green</a>
                       <a onclick="switchTheme('red')">Red</a>
                     </div>
+                  </div>
+                  <div class="dropdown-plugins">
+                      <button class="dropbtn-inner"><span onclick="showPlugins()">&#8595;</span> Plugins
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                      <div id="dropdown-plugins-content" class="dropdown-plugins-content">
+                          {% for plugin in plugins %}
+                              {% if plugin.enabled %}
+                                  <a onclick="">{{ plugin.name }} <i style="font-size:11px">(enabled)</i></a>
+                              {% else %}
+                                    <a onclick="">{{ plugin.name }}</a>
+                              {% endif %}
+                          {% endfor %}
+                      </div>
                   </div>
                 </div>
             </div>
@@ -84,6 +100,7 @@
         </center>
     </body>
     <script src="/gui/jquery/jquery.js"></script>
+    <script src="/gui/js/navbar.js"></script>
     <script>
         // typewriter
         let text = $('.typewriter').text();

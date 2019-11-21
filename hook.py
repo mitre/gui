@@ -6,7 +6,7 @@ address = None
 enabled = True
 
 
-async def initialize(app, services):
+async def enable(app, services):
     gui_api = GuiApi(services=services)
     app.router.add_static('/gui', 'plugins/gui/static/', append_version=True)
     app.router.add_route('*', '/', gui_api.home)
