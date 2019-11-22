@@ -42,34 +42,6 @@ function switchTheme(color) {
      localStorage.setItem('theme', color);
 }
 
-function reloadData() {
-    $.ajax({
-       url: '/data/reload',
-       type: 'POST',
-       success: function(data, status, options) { },
-       error: function (xhr, ajaxOptions, thrownError) { console.log(thrownError) }
-    });
-    alert('Data has been reloaded');
-}
-
-function resetData() {
-    $.ajax({
-       url: '/data/reset',
-       type: 'POST',
-       success: function(data, status, options) { },
-       error: function (xhr, ajaxOptions, thrownError) { console.log(thrownError) }
-    });
-    alert('Factory reset has been completed');
-}
-
-function showColors() {
-    if($("#dropdown-colors-content").is(":visible")){
-        $('#dropdown-colors-content').hide();
-    } else {
-        $('#dropdown-colors-content').show();
-    }
-}
-
 function showPlugin(name, description, address, state) {
     document.getElementById("duk-modal").style.display="block";
     $('#duk-state').text(state);
