@@ -33,13 +33,11 @@
                   <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                  <a onclick="reloadData()">Reload data</a>
-                  <a onclick="resetData()">Factory reset</a>
                   <div class="dropdown-colors">
-                    <button class="dropbtn-inner"><span onclick="showColors()">&#8595;</span> Change color
+                    <button class="dropbtn-inner">Change color
                         <i class="fa fa-caret-down"></i>
                     </button>
-                    <div id="dropdown-colors-content" class="dropdown-colors-content">
+                    <div class="dropdown-colors-content">
                       <a onclick="switchTheme('orange')">Orange</a>
                       <a onclick="switchTheme('blue')">Blue</a>
                       <a onclick="switchTheme('rebeccapurple')">Purple</a>
@@ -112,7 +110,6 @@
                 }
             }, 100);
         }());
-
         $('#intro').fadeIn(3000);
     </script>
 </html>
