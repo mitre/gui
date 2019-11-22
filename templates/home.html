@@ -11,13 +11,22 @@
     <body>
         <div class="topnav">
           <a class="active" href="/">Home</a>
-          {% for plugin in plugins %}
-              {% if plugin.enabled %}
-                  {% if plugin.address %}
-                      <a href="{{ plugin.address }}">{{ plugin.name }}</a>
-                  {% endif %}
-              {% endif %}
-          {% endfor %}
+          <div class="dropdown">
+            <button class="dropbtn">Plugins
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <div class="dropdown-content">
+                  {% for plugin in plugins %}
+                      {% if plugin.enabled %}
+                          <a onclick="showPlugin('{{ plugin.name }}', '{{ plugin.description }}', '{{ plugin.address }}', 'ENABLED')">{{ plugin.name }} <i style="font-size:11px">(enabled)</i></a>
+                      {% else %}
+                            <a onclick="showPlugin('{{ plugin.name }}', '{{ plugin.description }}', '{{ plugin.address }}', 'DISABLED')">{{ plugin.name }}</a>
+                      {% endif %}
+                  {% endfor %}
+              </div>
+            </div>
+          </div>
           <div class="topnav-right">
             <div class="dropdown">
                 <button class="dropbtn">Settings
@@ -37,20 +46,6 @@
                       <a onclick="switchTheme('green')">Green</a>
                       <a onclick="switchTheme('red')">Red</a>
                     </div>
-                  </div>
-                  <div class="dropdown-plugins">
-                      <button class="dropbtn-inner"><span onclick="showPlugins()">&#8595;</span> Plugins
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                      <div id="dropdown-plugins-content" class="dropdown-plugins-content">
-                          {% for plugin in plugins %}
-                              {% if plugin.enabled %}
-                                  <a onclick="">{{ plugin.name }} <i style="font-size:11px">(enabled)</i></a>
-                              {% else %}
-                                    <a onclick="">{{ plugin.name }}</a>
-                              {% endif %}
-                          {% endfor %}
-                      </div>
                   </div>
                 </div>
             </div>
@@ -96,13 +91,34 @@
                     </p>
                 </div>
             </div>
-            
+
+            <div id="duk-modal" class="modal">
+                <form class="modal-content" style="width: 300px;">
+                    <div class="container">
+                        <div class="row duk-modal">
+                            <span onclick="document.getElementById('duk-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <div class="column" style="flex:85%">
+                                <img src="/gui/img/plugin.png" style="margin-bottom:-10px;"/>
+                                <h3 id="duk-name" style="color: white;margin-bottom:0"></h3>
+                                <div id="state-holder" style="border-radius: 50px;">
+                                    <h5 id="duk-state" style="color: white"></h5>
+                                </div>
+                                <a id="duk-address" href="">click to enter</a>
+                                <p id="duk-text" style="color: white;font-size: 15px;"></p>
+                                <hr style="border: 1px solid grey">
+                                <p style="font-size: 12px;line-height:1.5em;text-align:left;margin-bottom:-25px">
+                                    Plugins can be enabled/disabled through the default.yml file. Server restart is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                 </form>
+            </div>
+
         </center>
     </body>
     <script src="/gui/jquery/jquery.js"></script>
-    <script src="/gui/js/navbar.js"></script>
     <script>
-        // typewriter
         let text = $('.typewriter').text();
         let length = text.length;
         let timeOut;
