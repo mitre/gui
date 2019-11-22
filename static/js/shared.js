@@ -62,6 +62,33 @@ function resetData() {
     alert('Factory reset has been completed');
 }
 
+function showColors() {
+    if($("#dropdown-colors-content").is(":visible")){
+        $('#dropdown-colors-content').hide();
+    } else {
+        $('#dropdown-colors-content').show();
+    }
+}
+
+function showPlugin(name, description, address, state) {
+    document.getElementById("duk-modal").style.display="block";
+    $('#duk-state').text(state);
+    $('#duk-name').text(name);
+    $('#duk-text').text(description);
+    $('#duk-address').attr("href", address);
+
+    if(state === 'ENABLED') {
+        $('#state-holder').css("background-color", "green");
+    } else {
+        $('#state-holder').css("background-color", "red");
+    }
+    if(address !== 'None') {
+        $('#duk-address').css("display", "block");
+    } else {
+        $('#duk-address').css("display", "none");
+    }
+}
+
 // flashy function
 function flashy(elem, message) {
     let flash = $('#'+elem);

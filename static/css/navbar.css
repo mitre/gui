@@ -89,7 +89,6 @@
   display: block;
 }
 
-.dropdown-plugins-content,
 .dropdown-colors-content {
   display: none;
   position: absolute;
@@ -99,7 +98,6 @@
   box-shadow: 0px 4px 8px 0px var(--theme-color);
   z-index: 1;
 }
-.dropdown-plugins-content a,
 .dropdown-colors-content a {
   color: white;
   font-size: 14px;
