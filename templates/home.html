@@ -58,38 +58,16 @@
         <center>
             <div class="home-box">
                 <h1 id="big-head" class="big-head">CALDERA</h1>
-                <h3 id="sub-head" class="typewriter small-head" style="margin-bottom: 20px;margin-top:0;">Cyber Adversary Language and Decision Engine for Red Team Automation</h3>
-                <div class="red-bar"></div>
-                <p style="font-size: 15px;width:75%;">
+                <div class="red-bar">
+                    <h3 id="sub-head" class="typewriter small-head" style="margin-bottom: 20px;margin-top:0;">Cyber Adversary Language and Decision Engine for Red Team Automation</h3>
+                </div>
+                <p id="intro" style="font-size: 15px;width:75%;display:none">
                     CALDERA is a framework designed to quickly run breach-and-simulation exercises. It was originally
                     developed as a MITRE research & development program, aimed at automating the decision-making of
                     a cyber adversary. Nowadays, it can also be used in realistic red-and-blue exercises.
-                    CALDERA is built on top of the ATT&CK framework.
+                    CALDERA is built on top of the ATT&CK framework. Using the plugins, deploy sandcat (54ndc47) agents
+                    on target hosts and run operations against them in chain mode.
                 </p>
-            </div>
-            <br>
-            <div class="row" style="background-color: inherit;margin-top:-50px;width:80%">
-                <div id="one" class="column duk-home" style="flex:33%;border-right: 1px solid white;">
-                    <center><div class="number"><h2>1</h2></div></center>
-                    <h3>Deploy agents</h3>
-                    <p>
-                        Deploy Sandcat (54ndc47) agents on each compromised computer.
-                    </p>
-                </div>
-                <div id="two" class="column duk-home" style="flex:33%;border-right: 1px solid white;">
-                    <center><div class="number"><h2>2</h2></div></center>
-                    <h3>Build adversaries</h3>
-                    <p>
-                        Combine ATT&CK TTPs to build custom adversaries, representing realistic threats.
-                    </p>
-                </div>
-                <div id="three" class="column duk-home" style="flex:33%;border-right: 1px solid white;">
-                    <center><div class="number"><h2>3</h2></div></center>
-                    <h3>Run operations</h3>
-                    <p>
-                        Point your adversary against the computers running agents to start an operation.
-                    </p>
-                </div>
             </div>
 
             <div id="duk-modal" class="modal">
@@ -134,5 +112,7 @@
                 }
             }, 100);
         }());
+
+        $('#intro').fadeIn(3000);
     </script>
 </html>

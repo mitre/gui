@@ -370,6 +370,4 @@ select {
     background-color: var(--theme-color);
     border-radius: 25px;
     width: 70%;
-    padding: 1px;
-    height: 10px;
 }

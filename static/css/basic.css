@@ -8,41 +8,9 @@
 }
 .big-head {
     margin-bottom: -10px;
-    margin-top: -20px;
     font-size:155px;
 }
 .small-head {
     color:white;
     font-size: 22px;
-}
-.duk-home {
-    text-align: center;
-    background-color: var(--primary-background);
-    border-radius: 25%;
-    padding: 25px;
-}
-.duk-home img {
-    height: 50px;
-    border-radius: 50%;
-}
-.duk-home h3 {
-    font-size: 24px;
-    margin-bottom: -5px;
-}
-.duk-home p {
-    font-size: 15px;
-    text-align: left;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.number {
-    border-radius: 50%;
-    background-color: var(--theme-color);
-    padding: 15px;
-    width:25px;
-    height: 25px;
-}
-.number h2 {
-    color: white;
-    margin: 0;
 }
