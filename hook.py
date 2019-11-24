@@ -5,7 +5,8 @@ description = 'Provides a web application structure & authentication for other p
 address = None
 
 
-async def enable(app, services):
+async def enable(services):
+    app = services.get('app_svc').application
     gui_api = GuiApi(services=services)
     app.router.add_static('/gui', 'plugins/gui/static/', append_version=True)
     app.router.add_route('*', '/', gui_api.home)
