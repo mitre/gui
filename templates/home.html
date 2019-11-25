@@ -68,6 +68,19 @@
                 </p>
             </div>
 
+            <div>
+              <div class="toggle">
+                <label class="switch"><input type="checkbox" id="togCloud" onchange="$('#cloud').fadeToggle()">
+                  <div class="slider round"><span class="off">Cloud</span><span class="on">Cloud</span></div>
+                </label>
+              </div>
+              <div id="cloud"  style="display:none;">
+                  <span id='cloudImg' class="icon"><img src="/gui/img/cloud.png" style="width:60px;
+                  height:60px;"></span>
+                  <p id="cloudText" style="font-size: 15px;width:75%;margin-top: 0px">Enabled</p>
+              </div>
+            </div>
+
             <div id="duk-modal" class="modal">
                 <form class="modal-content" style="width: 300px;">
                     <div class="container">
