@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="/gui/css/shared.css" type="text/css">
         <link rel="stylesheet" href="/gui/css/basic.css" type="text/css">
         <link rel="stylesheet" href="/gui/css/navbar.css" type="text/css">
-        <link rel="stylesheet" href="/gui/css/modal.css">
     </head>
     <body>
         <div class="topnav">
@@ -19,9 +18,11 @@
               <div class="dropdown-content">
                   {% for plugin in plugins %}
                       {% if plugin.enabled %}
-                          <a onclick="showPlugin('{{ plugin.name }}', '{{ plugin.description }}', '{{ plugin.address }}', 'ENABLED')">{{ plugin.name }} <i style="font-size:11px">(enabled)</i></a>
-                      {% else %}
-                            <a onclick="showPlugin('{{ plugin.name }}', '{{ plugin.description }}', '{{ plugin.address }}', 'DISABLED')">{{ plugin.name }}</a>
+                          {% if plugin.address %}
+                              <a href="{{ plugin.address }}">{{ plugin.name }}</a>
+                          {% else %}
+                              <a onclick="alert('This plugin has no GUI interface')">{{ plugin.name }}</a>
+                          {% endif %}
                       {% endif %}
                   {% endfor %}
               </div>
@@ -63,32 +64,8 @@
                     CALDERA is a framework designed to quickly run breach-and-simulation exercises. It was originally
                     developed as a MITRE research & development program, aimed at automating the decision-making of
                     a cyber adversary. Nowadays, it can also be used in realistic red-and-blue exercises.
-                    CALDERA is built on top of the ATT&CK framework. Using the plugins, deploy sandcat (54ndc47) agents
-                    on target hosts and run operations against them in chain mode.
+                    CALDERA is built on top of the ATT&CK framework.
                 </p>
-            </div>
-
-            <div id="duk-modal" class="modal">
-                <form class="modal-content" style="width: 300px;">
-                    <div class="container">
-                        <div class="row duk-modal">
-                            <span onclick="document.getElementById('duk-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
-                            <div class="column" style="flex:85%">
-                                <img src="/gui/img/plugin.png" style="margin-bottom:-10px;"/>
-                                <h3 id="duk-name" style="color: white;margin-bottom:0"></h3>
-                                <div id="state-holder" style="border-radius: 50px;">
-                                    <h5 id="duk-state" style="color: white"></h5>
-                                </div>
-                                <a id="duk-address" href="">click to enter</a>
-                                <p id="duk-text" style="color: white;font-size: 15px;"></p>
-                                <hr style="border: 1px solid grey">
-                                <p style="font-size: 12px;line-height:1.5em;text-align:left;margin-bottom:-25px">
-                                    Plugins can be enabled/disabled through the default.yml file. Server restart is required.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                 </form>
             </div>
 
         </center>
