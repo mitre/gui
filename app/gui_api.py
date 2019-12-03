@@ -21,4 +21,5 @@ class GuiApi:
     @template('home.html')
     async def home(self, request):
         await self.auth_svc.check_permissions(request)
-        return dict(plugins=await self.data_svc.locate('plugins'))
+        plugins = await self.data_svc.locate('plugins')
+        return dict(plugins=sorted(plugins, key=lambda x: x.name))
